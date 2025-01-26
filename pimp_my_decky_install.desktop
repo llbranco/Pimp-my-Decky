@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+## by LLBRANCO github.com/llbranco
+[Desktop Entry]
+Name=Pimp My Decky install
+Exec=curl -fsSL https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/main/install.sh | sh
+Icon=pimp-my-decky
+Terminal=true
+Type=Application
+StartupNotify=false
