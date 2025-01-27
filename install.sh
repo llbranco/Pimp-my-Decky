@@ -113,6 +113,42 @@ install_flatpak_apps() {
     done
 }
 
+# Função para escolher nível de compressão
+ask_compression_level() {
+    zenity --list \
+        --title="Configuração de Compressão" \
+        --width=450 \
+        --height=350 \
+        --window-icon="pimp-my-decky" \
+        --text="Escolha o nível de compressão desejado para o SteamOS-BTRFS:" \
+        --radiolist \
+        --column="Selecionar" --column="Nível" --column="Descrição" \
+        TRUE  "1" "Sem compressão" \
+        FALSE "2" "Compressão padrão (zstd:3)" \
+        FALSE "3" "Compressão média (zstd:5)" \
+        FALSE "4" "Compressão recomendada (zstd:7)" \
+        FALSE "5" "Compressão alta (zstd:9)"
+}
+# Função para instalar o SteamOS-BTRFS
+install_steamos_btrfs() {
+    compression_choice=$(ask_compression_level)
+    case "$compression_choice" in
+        1) zenity --notification --window-icon="pimp-my-decky" --text="Sem compressão selecionada."; return ;;
+        2) compressratio=""; zenity --notification --window-icon="pimp-my-decky" --text="Compressão padrão selecionada." ;;
+        3) compressratio="5"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão média selecionada." ;;
+        4) compressratio="7"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão recomendada selecionada." ;;
+        5) compressratio="9"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão alta selecionada." ;;
+        *) zenity --error --text="Opção inválida ou operação cancelada."; return ;;
+    esac
+    show_notification "Instalando SteamOS-BTRFS..."
+    bash -c "if [[ -f /usr/share/steamos-btrfs/install.sh ]] ; then /usr/share/steamos-btrfs/install.sh ; else t=\$(mktemp -d) ; curl -fsSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C \$t --strip-components=1 ; \$t/install.sh ; rm -rf \$t ; fi"
+    if [[ -n "$compressratio" ]]; then
+        show_notification "Configurando compressão com zstd:$compressratio..."
+        STEAMOS_BTRFS_HOME_MOUNT_OPTS="defaults,nofail,x-systemd.growfs,noatime,lazytime,compress-force=zstd:$compressratio,space_cache=v2,autodefrag,nodiscard" \
+        /usr/share/steamos-btrfs/install.sh
+    fi
+}
+
 # Função para exibir opções de instalação ao usuário
 ask_install_options() {
     zenity --list \
