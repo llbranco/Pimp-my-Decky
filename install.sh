@@ -27,10 +27,14 @@ create_directory() {
     if [ ! -d "$dir" ]; then
         echo "Directory $dir does not exist. Creating..."
         mkdir -p "$dir"
+        # Install Pimp my Decky Icon
+        curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/main/assets/Icon.png
+        xdg-icon-resource "$HOME/.pimp-my-decky/pimp-my-decky.png" --size 64
     else
         echo "Directory $dir already exists."
     fi
 }
+create_directory
 
 # Função para mostrar notificações
 show_notification() {
@@ -38,7 +42,6 @@ show_notification() {
         --window-icon="pimp-my-decky" \
         --text="$1"
 }
-#payload show_notification "sua msg aqui."
 
 # Listas de aplicativos essenciais e recomendados
 ESSENTIAL_APPS=(
@@ -65,6 +68,8 @@ ask_essential_apps() {
 
     zenity --list \
         --title="Aplicativos Essenciais" \
+        --width=450 \
+        --height=350 \
         --window-icon="pimp-my-decky" \
         --text="Selecione os aplicativos essenciais para instalar:" \
         --checklist \
@@ -83,6 +88,8 @@ ask_recommended_apps() {
 
     zenity --list \
         --title="Aplicativos Recomendados" \
+        --width=450 \
+        --height=350 \
         --window-icon="pimp-my-decky" \
         --text="Selecione os aplicativos recomendados para instalar:" \
         --checklist \
@@ -102,10 +109,9 @@ install_flatpak_apps() {
     IFS="|" read -ra apps <<< "$selected_apps"
     for app in "${apps[@]}"; do
         show_notification "Instalando $app..."
-        flatpak install -y flathub "$app"
+        flatpak install --user -y flathub "$app"
     done
 }
-
 
 # Função para exibir opções de instalação ao usuário
 ask_install_options() {
@@ -117,70 +123,16 @@ ask_install_options() {
         --text="Selecione o que deseja instalar/configurar:" \
         --checklist \
         --column="Selecionar" --column="Opção" \
-        TRUE  "SteamOS-BTRFS (compressão de dados)" \
-        TRUE  "Aplicativos essenciais (via Flatpak)" \
-        TRUE  "Aplicativos recomendados (via Flatpak)" \
+        TRUE  "ProtonUpQT e Wine (essencial)" \
+        TRUE  "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk" \        
+        FALSE  "SteamOS-BTRFS (compressão de dados)" \
         TRUE  "EmuDeck" \
         TRUE  "CryoUtilities" \
-        TRUE  "Spotify com Spicetify e Marketplace" \
+        FALSE  "Spotify com Spicetify e Marketplace" \
+        FALSE  "Stremio mais torrentio" \
         FALSE "Todos os itens acima" \
         --separator="|"
 }
-
-# Função para escolher nível de compressão
-ask_compression_level() {
-    zenity --list \
-        --title="Configuração de Compressão" \
-        --width=450 \
-        --height=350 \
-        --window-icon="pimp-my-decky" \
-        --text="Escolha o nível de compressão desejado para o SteamOS-BTRFS:" \
-        --radiolist \
-        --column="Selecionar" --column="Nível" --column="Descrição" \
-        TRUE  "1" "Sem compressão" \
-        FALSE "2" "Compressão padrão (zstd:3)" \
-        FALSE "3" "Compressão média (zstd:5)" \
-        FALSE "4" "Compressão recomendada (zstd:7)" \
-        FALSE "5" "Compressão alta (zstd:9)"
-}
-
-# Função para instalar o SteamOS-BTRFS
-install_steamos_btrfs() {
-    compression_choice=$(ask_compression_level)
-    case "$compression_choice" in
-        1) zenity --notification --window-icon="pimp-my-decky" --text="Sem compressão selecionada."; return ;;
-        2) compressratio=""; zenity --notification --window-icon="pimp-my-decky" --text="Compressão padrão selecionada." ;;
-        3) compressratio="5"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão média selecionada." ;;
-        4) compressratio="7"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão recomendada selecionada." ;;
-        5) compressratio="9"; zenity --notification --window-icon="pimp-my-decky" --text="Compressão alta selecionada." ;;
-        *) zenity --error --text="Opção inválida ou operação cancelada."; return ;;
-    esac
-
-    show_notification "Instalando SteamOS-BTRFS..."
-    bash -c "if [[ -f /usr/share/steamos-btrfs/install.sh ]] ; then /usr/share/steamos-btrfs/install.sh ; else t=\$(mktemp -d) ; curl -fsSL https://gitlab.com/popsulfr/steamos-btrfs/-/archive/main/steamos-btrfs-main.tar.gz | tar -xzf - -C \$t --strip-components=1 ; \$t/install.sh ; rm -rf \$t ; fi"
-
-    if [[ -n "$compressratio" ]]; then
-        show_notification "Configurando compressão com zstd:$compressratio..."
-        STEAMOS_BTRFS_HOME_MOUNT_OPTS="defaults,nofail,x-systemd.growfs,noatime,lazytime,compress-force=zstd:$compressratio,space_cache=v2,autodefrag,nodiscard" \
-        /usr/share/steamos-btrfs/install.sh
-    fi
-}
-
-# Função para instalar aplicativos via Flatpak
-install_flatpak_apps() {
-    local selected_apps="$1"
-    if [[ -z "$selected_apps" ]]; then
-        show_notification "Nenhum aplicativo selecionado para instalação."
-        return
-    fi
-
-    IFS="|" read -ra apps <<< "$selected_apps"
-    for app in "${apps[@]}"; do
-        show_notification "Instalando $app..."
-        flatpak install -y flathub "$app"
-    done
-}
-
 
 # Função para instalar o EmuDeck
 install_emudeck() {
@@ -236,33 +188,33 @@ setup_spotify_spicetify() {
     show_notification "Spotify com Spicetify configurado!"
 }
 
+setup_stremio() {
+flatpak install --user -y flathub com.stremio.Stremio
+xdg-open stremio://torrentio.strem.fun/manifest.json
+}
+
 # Execução principal
 main() {
     check_zenity
     check_root_or_prompt
-    create_directory
 
-zenity --text-info \
-       --title="Pimp my Decky" \
-       --URL=https://github.com/llbranco/Pimp-my-Decky \
-       --checkbox="Declaro que sou responsável por instalar"
+    zenity --text-info \
+           --title="Pimp my Decky" \
+           --URL=https://github.com/llbranco/Pimp-my-Decky \
+           --checkbox="Declaro que sou responsável por instalar"
 
-case $? in
-    0)
-        echo "iniciar instalação!"
-    # next step
-    ;;
-    1)
-        echo "parar instalação!"
-    ;;
-    -1)
-        echo "um erro ocorreu!"
-    ;;
-esac
-
-    # Install Pimp my Decky Icon
-curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/main/assets/Icon.png
-xdg-icon-resource "$HOME/.pimp-my-decky/pimp-my-decky.png" --size 64
+    case $? in
+        0)
+            echo "iniciar instalação!"
+            # next step
+            ;;
+        1)
+            echo "parar instalação!"
+            ;;
+        -1)
+            echo "um erro ocorreu!"
+            ;;
+    esac
 
     user_choices=$(ask_install_options)
     if [[ -z "$user_choices" ]]; then
@@ -274,22 +226,34 @@ xdg-icon-resource "$HOME/.pimp-my-decky/pimp-my-decky.png" --size 64
     for choice in "${choices[@]}"; do
         case "$choice" in
             "SteamOS-BTRFS (compressão de dados)") install_steamos_btrfs ;;
-            "Aplicativos essenciais (via Flatpak)") install_flatpak_apps ;;
-            "Aplicativos recomendados (via Flatpak)") install_flatpak_apps ;;
+            "ProtonUpQT e Wine (essencial)") 
+                selected_apps=$(ask_essential_apps)
+                install_flatpak_apps "$selected_apps"
+                ;;
+            "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk") 
+                selected_apps=$(ask_recommended_apps)
+                install_flatpak_apps "$selected_apps"
+                ;;
             "EmuDeck") install_emudeck ;;
             "CryoUtilities") install_cryoutilities ;;
             "Spotify com Spicetify e Marketplace") setup_spotify_spicetify ;;
+            "Stremio mais torrentio") setup_stremio ;;
             "Todos os itens acima")
                 install_steamos_btrfs
-                install_flatpak_apps
+                selected_apps=$(ask_essential_apps)
+                install_flatpak_apps "$selected_apps"
+                selected_apps=$(ask_recommended_apps)
+                install_flatpak_apps "$selected_apps"
                 install_emudeck
                 install_cryoutilities
                 setup_spotify_spicetify
+                setup_stremio
                 ;;
             *) zenity --error --text="Opção inválida: $choice" ;;
         esac
     done
 
+sleep 5
     show_notification "Instalações concluídas. Aproveite!"
 }
 
