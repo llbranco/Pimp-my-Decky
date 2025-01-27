@@ -12,13 +12,15 @@ Seu Steam Deck com tudo oq vc precisa em uma só ferramenta
 
 ainda estou desenvolvendo e testando
 
-clique com o botão direito [esse arquivo](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop) "salver como" pro desktop
+entre no modo desktop no seu Steam Deck
+clique com o botão direito [nesse arquivo](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop) "salver como" pro desktop
 no caso do firefox, TALVEZ seja necessário remover a extenção ".download"
 
 execute e siga os passos
 
 > [!TIP]
-> devido a uma limitação do Spicetify uma pertunta (Y/N) pode surgir na tela
-> na instalação do wine pode aparecer multiplas versões, escolha o numero correspondente a ÚLTIMA VERSÃO
+> devido a uma limitação do Spicetify uma pertunta (Y/N) pode surgir na tela, responda Y
+> na instalação do Wine pode aparecer multiplas versões, escolha o numero correspondente a ÚLTIMA VERSÃO
+> Pretendo corrigir esses problemas em versões futuras
 
 segue o link da minha postagem no [facebook](https://www.facebook.com/groups/valvesteamdeckbrasil/posts/9207210829344998)
