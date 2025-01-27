@@ -5,6 +5,11 @@ sem garantia de funcionamento perfeito, ainda em faze de testes
 
 ![image](https://github.com/user-attachments/assets/25df8358-b1d6-4bd9-8f24-778ff274236b)
 
+
+[![image](https://github.com/user-attachments/assets/7b2daebb-2728-4eb8-b3df-0e19e1a98561)](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop)
+
+
+
 ## Se eu te ajudei considere me comprar um cafézinho
 <a href='https://ko-fi.com/J3J4Y2DQ4' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dllbranco%26type%3Dpatrons&style=flat-square)](https://patreon.com/llbranco)
 
