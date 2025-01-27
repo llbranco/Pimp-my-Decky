@@ -1,12 +1,21 @@
 # Pimp-my-Decky BETA (WIP)
-sem garantia de funcionamento perfeito, ainda em faze de testes
+sem garantia de funcionamento perfeito, ainda em testes
 
-![pymp my decky_logo_small](https://github.com/user-attachments/assets/c3373abb-b6ee-4f97-ab01-b8f4c1307e22)
-
-![image](https://github.com/user-attachments/assets/25df8358-b1d6-4bd9-8f24-778ff274236b)
+![logo](https://github.com/user-attachments/assets/0d648b20-ad0a-4189-a978-c65ec644fe4b)
 
 
-[![image](https://github.com/user-attachments/assets/7b2daebb-2728-4eb8-b3df-0e19e1a98561)](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop)
+![menu](https://github.com/user-attachments/assets/25df8358-b1d6-4bd9-8f24-778ff274236b)
+
+
+![btrfs](https://github.com/user-attachments/assets/502f3563-e30f-4f71-bca5-0626aac4b4d2)
+
+
+![recomendados](https://github.com/user-attachments/assets/d164a088-2c32-40ab-ad71-ca31a1981bb6)
+
+
+
+
+[![download](https://github.com/user-attachments/assets/7b2daebb-2728-4eb8-b3df-0e19e1a98561)](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop)
 
 
 
