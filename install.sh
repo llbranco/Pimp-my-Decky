@@ -111,7 +111,7 @@ install_flatpak_apps() {
 ask_install_options() {
     zenity --list \
         --title="Instalação do Pimp My Decky" \
-        --width=250 \
+        --width=350 \
         --height=500 \
         --window-icon="pimp-my-decky" \
         --text="Selecione o que deseja instalar/configurar:" \
