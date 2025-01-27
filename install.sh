@@ -45,17 +45,17 @@ show_notification() {
 
 # Listas de aplicativos essenciais e recomendados
 ESSENTIAL_APPS=(
-    "net.davidotek.pupgui2:ProtonUp-Qt"
-    "org.winehq.Wine:WineHQ"
+    "TRUE net.davidotek.pupgui2:ProtonUp-Qt"
+    "TRUE org.winehq.Wine:WineHQ"
 )
 
 RECOMMENDED_APPS=(
     "ru.linux_gaming.PortProton:PortProton"
-    "com.anydesk.Anydesk:AnyDesk"
-    "com.github.tchx84.Flatseal:Flatseal"
+    "TRUE com.anydesk.Anydesk:AnyDesk"
+    "TRUE com.github.tchx84.Flatseal:Flatseal"
     "io.github.philipk.boilr:Boilr"
-    "com.usebottles.bottles:Bottles"
-    "net.lutris.Lutris:Lutris"
+    "TRUE com.usebottles.bottles:Bottles"
+    "TRUE net.lutris.Lutris:Lutris"
 )
 
 # Função para criar lista de aplicativos essenciais
