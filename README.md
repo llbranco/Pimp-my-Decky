@@ -1,4 +1,6 @@
-# Pimp-my-Decky (WIP)
+# Pimp-my-Decky BETA (WIP)
+sem garantia de funcionamento perfeito, ainda em faze de testes
+
 ![pymp my decky_logo_small](https://github.com/user-attachments/assets/c3373abb-b6ee-4f97-ab01-b8f4c1307e22)
 
 ![image](https://github.com/user-attachments/assets/25df8358-b1d6-4bd9-8f24-778ff274236b)
