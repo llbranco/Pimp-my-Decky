@@ -3,20 +3,14 @@ sem garantia de funcionamento perfeito, ainda em testes
 
 ![logo](https://github.com/user-attachments/assets/0d648b20-ad0a-4189-a978-c65ec644fe4b)
 
-
 ![menu](https://github.com/user-attachments/assets/25df8358-b1d6-4bd9-8f24-778ff274236b)
 
-
 ![btrfs](https://github.com/user-attachments/assets/502f3563-e30f-4f71-bca5-0626aac4b4d2)
-
 
 ![recomendados](https://github.com/user-attachments/assets/d164a088-2c32-40ab-ad71-ca31a1981bb6)
 
 
-
-
 [![download](https://github.com/user-attachments/assets/7b2daebb-2728-4eb8-b3df-0e19e1a98561)](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop)
-
 
 
 ## Se eu te ajudei considere me comprar um cafézinho
@@ -27,7 +21,7 @@ Seu Steam Deck com tudo oq vc precisa em uma só ferramenta
 ainda estou desenvolvendo e testando
 
 entre no modo desktop no seu Steam Deck
-clique com o botão direito [nesse arquivo](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop) "salver como" pro desktop
+clique com o botão direito [nesse arquivo](https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/refs/heads/main/pimp_my_decky_install.desktop) "salvar como" pro desktop
 no caso do firefox, TALVEZ seja necessário remover a extenção ".download"
 
 execute e siga os passos
@@ -37,4 +31,6 @@ execute e siga os passos
 > na instalação do Wine pode aparecer multiplas versões, escolha o numero correspondente a ÚLTIMA VERSÃO
 > Pretendo corrigir esses problemas em versões futuras
 
-segue o link da minha postagem no [facebook](https://www.facebook.com/groups/valvesteamdeckbrasil/posts/9207210829344998)
+Agradecimento ao @FelipeRSTV do [Central Deck](https://www.youtube.com/@CentralDeck)
+
+[meu Youtube](https://www.youtube.com/@llbranco)
