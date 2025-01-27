@@ -124,7 +124,7 @@ ask_install_options() {
         --checklist \
         --column="Selecionar" --column="Opção" \
         TRUE  "ProtonUpQT e Wine (essencial)" \
-        TRUE  "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk" \        
+        TRUE  "Apps recomendados" \        
         FALSE  "SteamOS-BTRFS (compressão de dados)" \
         TRUE  "EmuDeck" \
         TRUE  "CryoUtilities" \
@@ -230,7 +230,7 @@ main() {
                 selected_apps=$(ask_essential_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
-            "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk") 
+            "Apps recomendados") 
                 selected_apps=$(ask_recommended_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
