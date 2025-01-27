@@ -131,6 +131,8 @@ ask_install_options() {
 ask_compression_level() {
     zenity --list \
         --title="Configuração de Compressão" \
+        --width=450 \
+        --height=350 \
         --window-icon="pimp-my-decky" \
         --text="Escolha o nível de compressão desejado para o SteamOS-BTRFS:" \
         --radiolist \
@@ -259,8 +261,8 @@ case $? in
 esac
 
     # Install Pimp my Decky Icon
-curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/blob/main/assets/Icon.png
-xdg-icon-resource install pimp-my-decky.png --size 64
+curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/main/assets/Icon.png
+xdg-icon-resource "$HOME/.pimp-my-decky/pimp-my-decky.png" --size 64
 
     user_choices=$(ask_install_options)
     if [[ -z "$user_choices" ]]; then
