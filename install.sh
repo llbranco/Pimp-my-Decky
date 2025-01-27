@@ -120,7 +120,7 @@ ask_install_options() {
         --width=450 \
         --height=350 \
         --window-icon="pimp-my-decky" \
-        --text="Selecione o que deseja instalar/configurar:" \
+        --text="Selecione o que deseja instalar:" \
         --checklist \
         --column="Selecionar" --column="Opção" \
         TRUE  "ProtonUpQT e Wine (essencial)" \
