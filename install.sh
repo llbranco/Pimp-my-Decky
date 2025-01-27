@@ -259,7 +259,7 @@ case $? in
 esac
 
     # Install Pimp my Decky Icon
-curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://github.com/llbranco/Pimp-my-Decky/blob/main/assets/Icon.png
+curl -fsSL -o "$HOME/.pimp-my-decky/pimp-my-decky.png" https://raw.githubusercontent.com/llbranco/Pimp-my-Decky/blob/main/assets/Icon.png
 xdg-icon-resource install pimp-my-decky.png --size 64
 
     user_choices=$(ask_install_options)
