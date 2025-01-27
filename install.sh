@@ -22,6 +22,15 @@ check_zenity() {
     fi
 }
 
+create_directory() {
+    local dir="$HOME/.pimp-my-decky"
+    if [ ! -d "$dir" ]; then
+        echo "Directory $dir does not exist. Creating..."
+        mkdir -p "$dir"
+    else
+        echo "Directory $dir already exists."
+    fi
+}
 
 # Função para mostrar notificações
 show_notification() {
@@ -229,6 +238,7 @@ setup_spotify_spicetify() {
 main() {
     check_zenity
     check_root_or_prompt
+    create_directory
 
 zenity --text-info \
        --title="Pimp my Decky" \
