@@ -124,7 +124,7 @@ ask_install_options() {
         --checklist \
         --column="Selecionar" --column="Opção" \
         TRUE  "ProtonUpQT e Wine (essencial)" \
-        TRUE  "Apps recomendados" \        
+        TRUE  "Apps recomendados" \
         FALSE  "SteamOS-BTRFS (compressão de dados)" \
         TRUE  "EmuDeck" \
         TRUE  "CryoUtilities" \
@@ -226,11 +226,11 @@ main() {
     for choice in "${choices[@]}"; do
         case "$choice" in
             "SteamOS-BTRFS (compressão de dados)") install_steamos_btrfs ;;
-            "ProtonUpQT e Wine (essencial)") 
+            "ProtonUpQT e Wine (essencial)")
                 selected_apps=$(ask_essential_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
-            "Apps recomendados") 
+            "Apps recomendados")
                 selected_apps=$(ask_recommended_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
