@@ -45,17 +45,17 @@ show_notification() {
 
 # Listas de aplicativos essenciais e recomendados
 ESSENTIAL_APPS=(
-    "TRUE net.davidotek.pupgui2:ProtonUp-Qt"
-    "TRUE org.winehq.Wine:WineHQ"
+    "net.davidotek.pupgui2:ProtonUp-Qt"
+    "org.winehq.Wine:WineHQ"
 )
 
 RECOMMENDED_APPS=(
     "ru.linux_gaming.PortProton:PortProton"
-    "TRUE com.anydesk.Anydesk:AnyDesk"
-    "TRUE com.github.tchx84.Flatseal:Flatseal"
+    "com.anydesk.Anydesk:AnyDesk"
+    "com.github.tchx84.Flatseal:Flatseal"
     "io.github.philipk.boilr:Boilr"
-    "TRUE com.usebottles.bottles:Bottles"
-    "TRUE net.lutris.Lutris:Lutris"
+    "com.usebottles.bottles:Bottles"
+    "net.lutris.Lutris:Lutris"
 )
 
 # Função para criar lista de aplicativos essenciais
@@ -120,11 +120,11 @@ ask_install_options() {
         --width=450 \
         --height=350 \
         --window-icon="pimp-my-decky" \
-        --text="Selecione o que deseja instalar:" \
+        --text="Selecione o que deseja instalar/configurar:" \
         --checklist \
         --column="Selecionar" --column="Opção" \
         TRUE  "ProtonUpQT e Wine (essencial)" \
-        TRUE  "Apps recomendados" \
+        TRUE  "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk" \        
         FALSE  "SteamOS-BTRFS (compressão de dados)" \
         TRUE  "EmuDeck" \
         TRUE  "CryoUtilities" \
@@ -226,11 +226,11 @@ main() {
     for choice in "${choices[@]}"; do
         case "$choice" in
             "SteamOS-BTRFS (compressão de dados)") install_steamos_btrfs ;;
-            "ProtonUpQT e Wine (essencial)")
+            "ProtonUpQT e Wine (essencial)") 
                 selected_apps=$(ask_essential_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
-            "Apps recomendados")
+            "(recomendados)Lutris,PortProton,Flatseal,Boilr,Bottles,AnyDesk") 
                 selected_apps=$(ask_recommended_apps)
                 install_flatpak_apps "$selected_apps"
                 ;;
