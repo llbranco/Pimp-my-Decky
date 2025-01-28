@@ -1,4 +1,4 @@
-# aqui tenho anotações pessoais e coisas que posso (o não) incluir em versões futuras do Pimp my Decky
+# aqui tenho anotações pessoais e coisas que posso (o não) incluir em versões futuras do Pimp my Decky ( PmD )
 aqui é basicamente meu bloco de notas e/ou rascunho pra esse projeto
 
 <!-- 
@@ -23,3 +23,22 @@ ou ainda
 ``GRUB_CMDLINE_LINUX="fbcon=rotate:1"``
 
 (não esqueça de rodar: ``sudo update-grub`` para salvar as alterações no grub)
+
+
+## integrar no PmD
+
+decky loader
+
+### plugins:
+
+Proton db badges
+
+free loader
+
+steamgriddb
+
+isthereanydeal for deck
+
+music control
+
+e https://github.com/xXJSONDeruloXx/Decky-Framegen
