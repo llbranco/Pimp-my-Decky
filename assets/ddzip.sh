@@ -1,6 +1,6 @@
 #!/usr/env/bin bash
-# $1 input zip file
-# $2 output device (/dev/sde, for example)
+# $1 input device (e.g., /dev/sdf)
+# $2 output zip file (e.g., output.zip)
 
 if [ "$1" == "" ] || [ "$2" == "" ]; then
   echo "-=-=-=-=- ddzip help -=-=-=-=-"
@@ -8,10 +8,11 @@ if [ "$1" == "" ] || [ "$2" == "" ]; then
   echo "github.com/llbranco"
   echo "you need to specify the parameters"
   echo ""
-  echo "to use ddzip, run \"ddzip file.zip /dev\""
+  echo "to use ddzip, run \"ddzip /dev/sdf output.zip\""
   echo "ex:"
-  echo "ddzip /path/file.zip /dev/sdf"
+  echo "ddzip /dev/sdf /path/output.zip"
   exit
 fi
 
-unzip -p "$1" | dd bs=4M of="$2" iflag=fullblock oflag=direct status=progress
+# Cria o arquivo zip a partir do dispositivo
+dd if="$1" bs=4M | zip "$2" -
