@@ -42,3 +42,7 @@ isthereanydeal for deck
 music control
 
 e https://github.com/xXJSONDeruloXx/Decky-Framegen
+
+## steam link
+
+[download steamlink windows](https://media.steampowered.com/steamlink/windows/latest/SteamLink.zip)
