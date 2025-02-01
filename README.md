@@ -34,3 +34,5 @@ execute e siga os passos
 Agradecimento ao @FelipeRSTV do [Central Deck](https://www.youtube.com/@CentralDeck)
 
 [meu Youtube](https://www.youtube.com/@llbranco)
+
+[steam link for windows](https://media.steampowered.com/steamlink/windows/latest/SteamLink.zip)
