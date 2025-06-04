@@ -1,5 +1,12 @@
 # Pimp-my-Decky BETA (WIP)
-sem garantia de funcionamento perfeito, ainda em testes
+sem garantia de funcionamento perfeito
+
+obs: não tenho planos de voltar com o projeto
+pois migrei para o Bazzite Os para ter suporte nativo ao BTRFS
+(importantissimo pra mim neste momento pois,no momento, não tenho como arcar com um SSD maior então a compressão de dados me ajuda a contornar, um pouco, essa limitação)
+e pelo mesmo motivo (limitação de espaço) não faço uso de todos os apps q pretendo dar suporte.
+
+mas com a sua ajuda, talvez eu possa retomar o projeto de onde parei ou até suportar outros sistemas como Bazzite, ChimeraOS, Nobara ou Big Linux.
 
 ![logo](https://github.com/user-attachments/assets/0d648b20-ad0a-4189-a978-c65ec644fe4b)
 
